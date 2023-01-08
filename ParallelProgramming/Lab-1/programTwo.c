@@ -12,15 +12,16 @@ int main(int argc, char *argv[])
 
     if(rank%2==0)
     {
-        printf("Hello\n");
+        printf("My rank : %d \tHello\n", rank);
     }
     else
     {
-        printf("World\n");
+        printf("My rank : %d \tWorld\n", rank);
     }
     MPI_Finalize();
     
     return 0;
 }
+
 
 
