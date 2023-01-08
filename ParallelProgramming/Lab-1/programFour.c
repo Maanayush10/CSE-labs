@@ -4,14 +4,11 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+
 int main(int argc, char *argv[])
 {
     int rank, size;
-    char * arr;
-    arr= (char * )malloc(sizeof(char));
-
-    printf("Enter any string :\t");
-    scanf("%s", arr);
+    char arr[]="Ayush";
 
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -28,7 +25,7 @@ int main(int argc, char *argv[])
         arr[rank]= toupper(ch);
     }
 
-    printf("%s\n", arr);
+    printf("My rank :%d \tToggled string: %s\n", rank,arr);
     MPI_Finalize();
     
     return 0;
