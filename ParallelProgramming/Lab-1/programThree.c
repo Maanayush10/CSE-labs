@@ -4,9 +4,8 @@
 #include<stdio.h>
 int main(int argc, char *argv[]){
     int rank, size;
-    int a, b;
-    printf("Enter the value of a and b :\t");
-    scanf("%d", &a); scanf("%d", &b);
+    int a=10, b=20;
+//     printf("\nValue of a=10 and b=20 \n");
 
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
@@ -14,20 +13,24 @@ int main(int argc, char *argv[]){
 
     switch(rank)
     {
-        case 0: 
+        case 0:
+                printf("\n\n");
                 printf("Process RANK : %d\n", rank);
                 printf("Sum : %d\n", a+b);
                 break;
         
         case 1:
+                printf("\n\n");
                 printf("Process RANK : %d\n", rank);
                 printf("Difference : %d\n", a-b);
                 break;
         case 2: 
+                printf("\n\n");
                 printf("Process RANK : %d\n", rank);
                 printf("Product : %d\n", a*b);
                 break;
         case 3: 
+                printf("\n\n");
                 printf("Process RANK : %d\n", rank);
                 printf("Quotient : %d\n", a/b);
                 break;
