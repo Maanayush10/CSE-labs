@@ -1,4 +1,4 @@
-//MPI c program to take input in the array in master process and show power
+//MPI c program to take input in tthe array in master process and show power
 
 #include <stdio.h>
 #include <stdlib.h>
