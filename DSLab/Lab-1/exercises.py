@@ -1,7 +1,7 @@
-#all the exercises of lab-1 are here.
+# all the exercises of lab-1 are here.
 
 # *****************************************************
-#q1 finding the area of the triangle
+# q1 finding the area of the triangle
 # length = int(input("Enter length : "))
 # breadth = int(input("Enter breadth : "))
 # area= length*breadth
@@ -9,7 +9,7 @@
 
 
 # *****************************************************
-#q2 swapping 2 variables
+# q2 swapping 2 variables
 # var =100;
 # var2 =200;
 # print("Both variables before swapping : ")
@@ -22,7 +22,7 @@
 
 
 # *****************************************************
-#q3 check whether a number is even or odd
+# q3 check whether a number is even or odd
 # var1 = int(input("Enter a number : "))
 # if(var1%2 ==0) :
 
@@ -34,7 +34,7 @@
 
 
 # *****************************************************
-#q4 check largest
+# q4 check largest
 # var1 = int(input("Enter number1 : "))
 # var2 = int(input("Enter number2 : "))
 # var3 = int(input("Enter number3 : "))
@@ -47,7 +47,6 @@
 # 	print(var2," is the largest.");
 # else :
 # 	print(var3," is the largest.");
-
 
 
 # *****************************************************
@@ -64,24 +63,65 @@
 # print(tuple1)
 # print(tuple2)
 
+
 # *****************************************************
-#  q6 printing even values in one tuple, odd in another
+#  q7 printing even values in one tuple, odd in another
 
-mytuple =(1,2,3,4,5,6,7,8,9,10);
-tuple1 =() 
-tuple2 =()
-j=0
-k=0
-for i in mytuple :
-	if(mytuple[i]%2==0):
-		tuple1[j]=mytuple[i]
-		i=i+1
-		j=j+1
-	else :
-		tuple1[k]=mytuple[i]
-		i=i+1
-		k=k+1
+# mytuple =(1,2,3,4,5,6,7,8,9,10);
+# tuple1 =tuple()
+# tuple2 =tuple()
+# j=0
+# k=0
+# for i in range(len(mytuple)):
+# 	if(mytuple[i]%2==0):
+# 		tuple1[j]= mytuple[i]
+# 		j=j+1
+# 	else :
+# 		tuple2[k]= mytuple[i]
+# 		k=k+1
 
-print(mytuple)
-print(tuple1)
-print(tuple2)
+# print(mytuple)
+# print(tuple1)
+# print(tuple2)
+
+
+# *****************************************************
+#  q8 printing negative values from one tuple into a list
+
+# mytuple = (-1, 2, 3, -4, 5, 6, 7, 8, 9, -10)
+
+# mylist = list()
+# i=0
+# for i in range(len(mytuple)):
+#     if(mytuple[i] < 0) :
+#         mylist.append(mytuple[i])
+
+
+# print(mylist)
+
+
+# *****************************************************
+#  q9 printing negative values from one tuple into a list
+
+# mytuple = (-1, 2, 3, -4, 5, 6, 7, 8, 9, -10)
+# print(mytuple)
+# countPos=0
+# countNeg =0
+# mylist = list()
+# i=0
+# for i in range(len(mytuple)):
+#     if(mytuple[i] < 0) :
+#        countNeg = countNeg+1
+#     else:
+#         countPos= countPos+1
+
+# print("Number of Negative numbers : ", countNeg)
+# print("Number of Postive Numbers : ", countPos)
+
+
+# *****************************************************
+#  q10 remove all elements from the list
+# mylist =[1,2,3,4,5]
+# print("List before removing : ", mylist)
+# mylist.clear()
+# print("List after removing : ", mylist)
