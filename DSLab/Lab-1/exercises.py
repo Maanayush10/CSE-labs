@@ -65,24 +65,16 @@
 
 
 # *****************************************************
-#  q7 printing even values in one tuple, odd in another
+#  q7 printing even values in another tuple from a given tuple
 
 # mytuple =(1,2,3,4,5,6,7,8,9,10);
-# tuple1 =tuple()
-# tuple2 =tuple()
-# j=0
-# k=0
+# tuple1 =()
 # for i in range(len(mytuple)):
 # 	if(mytuple[i]%2==0):
-# 		tuple1[j]= mytuple[i]
-# 		j=j+1
-# 	else :
-# 		tuple2[k]= mytuple[i]
-# 		k=k+1
+# 		tuple1=tuple1 + (mytuple[i],);
 
 # print(mytuple)
 # print(tuple1)
-# print(tuple2)
 
 
 # *****************************************************
@@ -101,7 +93,7 @@
 
 
 # *****************************************************
-#  q9 printing negative values from one tuple into a list
+#  q9 to count positive and negative numbers in the list.
 
 # mytuple = (-1, 2, 3, -4, 5, 6, 7, 8, 9, -10)
 # print(mytuple)
