@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+        * {
+            padding: 2px;
+        }
+
+        #card {
+            background-color: yellow;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #card {
+            height: 80vh;
+            width: 40vw;
+        }
+
+        body {
+            background-color: peachpuff;
+        }
+
+        h1 {
+            justify-content: center;
+            display: grid;
+        }
+
+        #cake {
+            justify-content: center;
+            display: grid;
+        }
+
+        td {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#solid').click(function () {
+                $("table").css("border", "solid");
+            });
+            $('#double').click(function () {
+                $("table").css("border", "double");
+            });
+            $('#none').click(function () {
+                $("table").css("border", "none");
+            });
+
+            $("#chkbox").click(function () {
+                if ($(this).is(':checked')) {
+                    $("#img-td").html("<img src='https://5.imimg.com/data5/SG/FR/MY-20270082/happy-birthday-choco-cake-500x500.png' alt='birthday-cake' id='cake'>");
+                }
+                else {
+                    $("#img-td").html(" ");
+                }
+            });
+
+            $("#color-select option").click(function(){
+                if($("#Yellow").is(':selected'))
+                {
+                    $(".side-card table").css("background-color", "yellow");
+                }
+                if($("#Green").is(':selected'))
+                {
+                    $(".side-card table").css("background-color", "green");
+                }
+                if($("#Blue").is(':selected'))
+                {
+                    $(".side-card table").css("background-color", "blue");
+                }
+            });
+            $("#font-select option").click(function(){
+                if($("#Verdana").is(':selected'))
+                {
+                    $("#card-head").css("font-family", "Verdana");
+                }
+                if($("#Sans-Seriff").is(':selected'))
+                {
+                    $("#card-head").css("font-family", "Sans-Seriff");
+                }
+                if($("#Roboto").is(':selected'))
+                {
+                    $("#card-head").css("font-family", "Roboto");
+                }
+            });
+            $("#update").click(function(){
+                let text=$("#txt-area").val();
+                $("#card-head").text(text);
+            });
+            $("#fontSize").keypress(function(){
+                let textSz= $("#fontSize").val();
+                $("#card-head").css("font-size", textSz+"px");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Birthday Card</h1>
+    <div class="container">
+        <div class="card-items">
+            Choose a background Color :
+            <select name="choose-your-color" id="color-select">
+                <option value="Yellow" id="Yellow">Yellow</option>
+                <option value="Green" id="Green">Green</option>
+                <option value="Blue" id="Blue">Blue</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            Choose a Font :
+            <select name="choose-your-font" id="font-select">
+                <option value="Verdana" id="Verdana">Verdana</option>
+                <option value="Sans-Seriff" id="Sans-Seriff">Sans-Seriff</option>
+                <option value="Roboto" id="Roboto">Roboto</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            Enter font size (number):
+            <input type="text" name="font-size" id="fontSize">
+            <br>
+            <br>
+            choose a Border style:
+            <br><br>
+
+            <input type="radio" name="group" id="none">NONE<br><br>
+            <input type="radio" name="group" id="double">DOUBLE<br><br>
+            <input type="radio" name="group" id="solid">SOLID<br><br>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <input type="checkbox" name="" id="chkbox"> Add Default Picture
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            Enter the greeting text below
+            <br>
+            <br>
+            <textarea name="txtAR" id="txt-area" cols="60" rows="10"></textarea>
+            <br>
+            <br>
+            <button id="update">Update</button>
+        </div>
+        <div class="side-card">
+            <table id="card">
+                <tr>
+                    <td>
+                        <div class="card-head">
+                            <h1 id="card-head"></h1>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="img-td"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <style>
+        .table {
+            position: relative;
+        }
+
+        #myImg {
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".color-1").css("background-color", "green");
+            $(".color-2").css("background-color", "yellow");
+            $("#myButton").click(function () {
+                $("div").animate({ left: '500px' });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="myButton">Click me</button>
+    <div class="table">
+        <table border="3">
+            <tr class="color-1">
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td rowspan="3"><img id="myImg"
+                        src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/d2733710528853.560e664b1b2ef.jpg"
+                        alt=""></td>
+            </tr>
+            <tr class="color-2">
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr class="color-1">
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</body>
+
+</html>

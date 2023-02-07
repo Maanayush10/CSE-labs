@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        .text-center {
+            text-align: center;
+        }
+
+        .num {
+            height: 50px;
+            width: 50px;
+            font-size: 30px;
+        }
+
+        input {
+            height: 100px;
+            width: 200px;
+            font-size: 50px;
+        }
+
+        .ac {
+            height: 50px;
+            width: 50px;
+            font-size: 30px;
+        }
+
+        .op {
+            height: 50px;
+            width: 50px;
+            font-size: 30px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var display = $("#txtBox");
+            $(".num").click(function () {
+                var val = $(this).text();
+                if (val === "AC") {
+                    display.val("");
+                } else {
+                    display.val(display.val() + val);
+                }
+            });
+
+            $(".op").click(function () {
+                var val = $(this).text();
+                if (val === "=") {
+                    display.val(eval(display.val()));
+                } else {
+                    display.val(display.val() + val);
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1 class="text-center">Simple Calculator</h1>
+    <center>
+        <input type="text" id="txtBox">
+
+        <table class="text-center">
+            <tbody>
+                <tr>
+                    <td><button class="num">1</button></td>
+                    <td><button class="num">2</button></td>
+                    <td><button class="num">3</button></td>
+                    <td><button class="op">+</button></td>
+                </tr>
+
+                <tr>
+                    <td><button class="num">4</button></td>
+                    <td><button class="num">5</button></td>
+                    <td><button class="num">6</button></td>
+                    <td><button class="num">-</button></td>
+                </tr>
+
+                <tr>
+                    <td><button class="num">7</button></td>
+                    <td><button class="num">8</button></td>
+                    <td><button class="num">9</button></td>
+                    <td><button class="op">*</button></td>
+                </tr>
+                <tr>
+                    <td><button class="op">/</button></td>
+                    <td><button class="num">AC</button></td>
+                    <td><button class="num">.</button></td>
+                    <td><button class="op">=</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+        body {
+            font-family: 'Kalam';
+            font-size: 30px;
+        }
+
+        h1 {
+            justify-content: center;
+            display: grid;
+        }
+
+        .center {
+            display: grid;
+            justify-content: center;
+        }
+
+        button {
+            height: 45px;
+            width: 145px;
+            font-size: 20px;
+        }
+    </style>
+    <title>Produce Bill</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                var brand = $("#company-Select").val();
+                var product = $('input[type="checkbox"]:checked').val();
+                var quantity = $('#quantityTxt').val();
+                var price;
+
+                if (brand === "hp") {
+                    price = 1000;
+                } else if (brand === "nokia") {
+                    price = 2000;
+                } else if (brand === "samsung") {
+                    price = 3000;
+                } else if (brand === "motorola") {
+                    price = 4000;
+                } else if (brand === "apple") {
+                    price = 5000;
+                }
+
+
+                var type = product;
+                if (type === "laptop") {
+                    price = price + 500;
+                }
+                else if (type === "mobile") {
+                    price = price + 200;
+                }
+                else {
+                    alert("Please select only one product type");
+                }
+
+                    console.log(brand)
+                    console.log(price);
+                    console.log(quantity);
+                    var totalAmount = price * quantity;
+                    console.log(totalAmount);
+                    alert('Total Amount: $' + totalAmount);
+                });
+        });
+    </script>
+
+</head>
+
+<body>
+    <h1>Bill</h1>
+    <center>
+        <br>
+
+        <div class="company">
+            Choose Company :
+            <select name="comp" id="company-Select">
+                <option value="hp" id="hp">HP</option>
+                <option value="motorola" id="motorola">Motorola</option>
+                <option value="nokia" id="nokia">Nokia</option>
+                <option value="samsung" id="samsung">Samsung</option>
+                <option value="apple" id="apple">Apple</option>
+            </select>
+        </div>
+        <br>
+        <div class="chkbox">
+            <input type="checkbox" name="lappy" id="laptop" value="laptop">Laptop
+            <input type="checkbox" name="mobile" id="Mobile" value="mobile">Mobile
+        </div>
+        <br>
+
+        <div class="q">
+            Enter the Quantity :
+            <input type="text" name="quantity" id="quantityTxt">
+        </div>
+        <br>
+
+
+        <button id="bill">Produce Bill</button>
+    </center>
+</body>
+
+</html>
