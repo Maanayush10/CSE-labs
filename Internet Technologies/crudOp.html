@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <title>CRUD operations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#create").click(function () {
+                $("#mytable").append("<tr class='tr-class'><td>10</td><td>Ayushman</td><td>100000</td></tr>");
+            });
+
+            $("#delete").click(function () {
+                $(".tr-class").remove();
+            });
+
+            $("#update").click(function(){
+                $(".UpdateHere").html("<td>ss26</td><td>Mahesh Babu</td><td>100000</td>");
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>Employee Database</h1>
+    </center>
+    <br>
+    <div class="buttons">
+        <button type="button" class="btn btn-outline-primary" id="create">Create</button>
+        <button type="button" class="btn btn-outline-primary" id="update">Update</button>
+        <button type="button" class="btn btn-outline-secondary" id="delete">Delete</button>
+    </div>
+    <br>
+    <br>
+
+    <table class="table table-striped" id="mytable">
+        <tr>
+            <td>Employee ID</td>
+            <td>Employee Name</td>
+            <td>Employee Salary</td>
+        </tr>
+        <tr class="tr-class">
+            <td>10</td>
+            <td>Ayushman</td>
+            <td>10000000</td>
+        </tr>
+        <tr class="UpdateHere">
+            <td>10</td>
+            <td>Ayushman</td>
+            <td>10000000</td>
+        </tr>
+    </table>
+</body>
+
+</html>
