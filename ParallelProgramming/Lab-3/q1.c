@@ -1,49 +1,52 @@
-#include "mpi.h"
 #include <stdio.h>
-int factorial(int num)
+#include "mpi.h"
+
+int fact(int num)
 {
-    if(num<2)
+    if (num < 2)
     {
         return 1;
     }
-    return num* factorial(num-1);
+    return num * fact(num - 1);
 }
-
 int main(int argc, char *argv[])
 {
-    int size, rank, N;
-    int A[10], B[10], c, i;
+    int rank, size, c;
+    int arr[100];
+    int B[100];
+    int factNum = 1, factSum = 0;
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
+    if (rank == 0)
+    {
+        printf("Enter array values: \t");
+        for (int i = 0; i < size; i++)
+        {
+            /* code */
+            scanf("%d", &arr[i]);
+        }
+    }
+    MPI_Scatter(arr, 1, MPI_INT, &c, 1, MPI_INT, 0, MPI_COMM_WORLD);
+
+    factNum = fact(c);
+    printf("[process: %d] fact = %d\n", rank, factNum);
+
+    MPI_Gather(&factNum, 1, MPI_INT, B, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
     if (rank == 0)
     {
-        N = size;
-        printf("Enter %d elements of the array:\t", N);
-        for (int i = 0; i < N; i++)
+        printf("\n");
+        for (int i = 0; i < size; i++)
         {
-            /* code */
-            scanf("%d", &A[i]);
-        }
-    }
-
-    MPI_Scatter(A, 1, MPI_INT, &c, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    printf("\n[Process :%d] I have received %d\n", rank, c);
-    c=factorial(c);
-
-    MPI_Gather( &c, 1, MPI_INT, B, 1, MPI_INT, 0, MPI_COMM_WORLD);
-
-      if (rank == 0)
-    {
-        N = size;
-        printf("Factorial of each element :\t");
-        for (int i = 0; i < N; i++)
-        {
-            /* code */
             printf("%d ", B[i]);
         }
+        printf("\n");
+        for (int i = 0; i < size; i++)
+        {
+            factSum = factSum + B[i];
+        }
+        printf("Sum of factorials is : %d\n", factSum);
     }
-    MPI_Finalize();
     return 0;
 }
